@@ -1,0 +1,23 @@
+{
+  "projectName": "indiglobe",
+  "mode": "file-router",
+  "typescript": true,
+  "tailwind": true,
+  "packageManager": "pnpm",
+  "addOnOptions": {
+    "drizzle": {
+      "database": "mysql"
+    }
+  },
+  "git": true,
+  "version": 1,
+  "framework": "react-cra",
+  "chosenAddOns": [
+    "eslint",
+    "drizzle",
+    "shadcn",
+    "start",
+    "storybook",
+    "tanstack-query"
+  ]
+}
