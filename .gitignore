@@ -4,7 +4,7 @@ dist
 dist-ssr
 *.local
 count.txt
-.env
+.env*
 .nitro
 .tanstack
 .wrangler
@@ -12,3 +12,10 @@ count.txt
 .vinxi
 .pnpm-store
 .vscode
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/

@@ -1,3 +1,11 @@
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
+**/routeTree.gen.ts
+.devcontainer/*
+.cursorrules
+.gitignore
+public/*
+.prettierignore
+.husky/*
+**/assets/*

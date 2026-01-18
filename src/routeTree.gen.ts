@@ -9,50 +9,249 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as itSolutionsIndexRouteImport } from './routes/(it-solutions)/index'
+import { Route as itSolutionsServicesIndexRouteImport } from './routes/(it-solutions)/services/index'
+import { Route as itSolutionsOurWorksIndexRouteImport } from './routes/(it-solutions)/our-works/index'
+import { Route as itSolutionsContactIndexRouteImport } from './routes/(it-solutions)/contact/index'
+import { Route as itSolutionsAboutUsIndexRouteImport } from './routes/(it-solutions)/about-us/index'
+import { Route as instituteInstituteIndexRouteImport } from './routes/(institute)/institute/index'
+import { Route as instituteInstituteReviewsIndexRouteImport } from './routes/(institute)/institute/reviews/index'
+import { Route as instituteInstituteCoursesIndexRouteImport } from './routes/(institute)/institute/courses/index'
+import { Route as instituteInstituteContactIndexRouteImport } from './routes/(institute)/institute/contact/index'
+import { Route as instituteInstituteAboutIndexRouteImport } from './routes/(institute)/institute/about/index'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
+const itSolutionsIndexRoute = itSolutionsIndexRouteImport.update({
+  id: '/(it-solutions)/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const itSolutionsServicesIndexRoute =
+  itSolutionsServicesIndexRouteImport.update({
+    id: '/(it-solutions)/services/',
+    path: '/services/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const itSolutionsOurWorksIndexRoute =
+  itSolutionsOurWorksIndexRouteImport.update({
+    id: '/(it-solutions)/our-works/',
+    path: '/our-works/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const itSolutionsContactIndexRoute = itSolutionsContactIndexRouteImport.update({
+  id: '/(it-solutions)/contact/',
+  path: '/contact/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const itSolutionsAboutUsIndexRoute = itSolutionsAboutUsIndexRouteImport.update({
+  id: '/(it-solutions)/about-us/',
+  path: '/about-us/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const instituteInstituteIndexRoute = instituteInstituteIndexRouteImport.update({
+  id: '/(institute)/institute/',
+  path: '/institute/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const instituteInstituteReviewsIndexRoute =
+  instituteInstituteReviewsIndexRouteImport.update({
+    id: '/(institute)/institute/reviews/',
+    path: '/institute/reviews/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const instituteInstituteCoursesIndexRoute =
+  instituteInstituteCoursesIndexRouteImport.update({
+    id: '/(institute)/institute/courses/',
+    path: '/institute/courses/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const instituteInstituteContactIndexRoute =
+  instituteInstituteContactIndexRouteImport.update({
+    id: '/(institute)/institute/contact/',
+    path: '/institute/contact/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const instituteInstituteAboutIndexRoute =
+  instituteInstituteAboutIndexRouteImport.update({
+    id: '/(institute)/institute/about/',
+    path: '/institute/about/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/': typeof itSolutionsIndexRoute
+  '/institute': typeof instituteInstituteIndexRoute
+  '/about-us': typeof itSolutionsAboutUsIndexRoute
+  '/contact': typeof itSolutionsContactIndexRoute
+  '/our-works': typeof itSolutionsOurWorksIndexRoute
+  '/services': typeof itSolutionsServicesIndexRoute
+  '/institute/about': typeof instituteInstituteAboutIndexRoute
+  '/institute/contact': typeof instituteInstituteContactIndexRoute
+  '/institute/courses': typeof instituteInstituteCoursesIndexRoute
+  '/institute/reviews': typeof instituteInstituteReviewsIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  '/': typeof itSolutionsIndexRoute
+  '/institute': typeof instituteInstituteIndexRoute
+  '/about-us': typeof itSolutionsAboutUsIndexRoute
+  '/contact': typeof itSolutionsContactIndexRoute
+  '/our-works': typeof itSolutionsOurWorksIndexRoute
+  '/services': typeof itSolutionsServicesIndexRoute
+  '/institute/about': typeof instituteInstituteAboutIndexRoute
+  '/institute/contact': typeof instituteInstituteContactIndexRoute
+  '/institute/courses': typeof instituteInstituteCoursesIndexRoute
+  '/institute/reviews': typeof instituteInstituteReviewsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/(it-solutions)/': typeof itSolutionsIndexRoute
+  '/(institute)/institute/': typeof instituteInstituteIndexRoute
+  '/(it-solutions)/about-us/': typeof itSolutionsAboutUsIndexRoute
+  '/(it-solutions)/contact/': typeof itSolutionsContactIndexRoute
+  '/(it-solutions)/our-works/': typeof itSolutionsOurWorksIndexRoute
+  '/(it-solutions)/services/': typeof itSolutionsServicesIndexRoute
+  '/(institute)/institute/about/': typeof instituteInstituteAboutIndexRoute
+  '/(institute)/institute/contact/': typeof instituteInstituteContactIndexRoute
+  '/(institute)/institute/courses/': typeof instituteInstituteCoursesIndexRoute
+  '/(institute)/institute/reviews/': typeof instituteInstituteReviewsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/institute'
+    | '/about-us'
+    | '/contact'
+    | '/our-works'
+    | '/services'
+    | '/institute/about'
+    | '/institute/contact'
+    | '/institute/courses'
+    | '/institute/reviews'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/institute'
+    | '/about-us'
+    | '/contact'
+    | '/our-works'
+    | '/services'
+    | '/institute/about'
+    | '/institute/contact'
+    | '/institute/courses'
+    | '/institute/reviews'
+  id:
+    | '__root__'
+    | '/(it-solutions)/'
+    | '/(institute)/institute/'
+    | '/(it-solutions)/about-us/'
+    | '/(it-solutions)/contact/'
+    | '/(it-solutions)/our-works/'
+    | '/(it-solutions)/services/'
+    | '/(institute)/institute/about/'
+    | '/(institute)/institute/contact/'
+    | '/(institute)/institute/courses/'
+    | '/(institute)/institute/reviews/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  itSolutionsIndexRoute: typeof itSolutionsIndexRoute
+  instituteInstituteIndexRoute: typeof instituteInstituteIndexRoute
+  itSolutionsAboutUsIndexRoute: typeof itSolutionsAboutUsIndexRoute
+  itSolutionsContactIndexRoute: typeof itSolutionsContactIndexRoute
+  itSolutionsOurWorksIndexRoute: typeof itSolutionsOurWorksIndexRoute
+  itSolutionsServicesIndexRoute: typeof itSolutionsServicesIndexRoute
+  instituteInstituteAboutIndexRoute: typeof instituteInstituteAboutIndexRoute
+  instituteInstituteContactIndexRoute: typeof instituteInstituteContactIndexRoute
+  instituteInstituteCoursesIndexRoute: typeof instituteInstituteCoursesIndexRoute
+  instituteInstituteReviewsIndexRoute: typeof instituteInstituteReviewsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/(it-solutions)/': {
+      id: '/(it-solutions)/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+      preLoaderRoute: typeof itSolutionsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(it-solutions)/services/': {
+      id: '/(it-solutions)/services/'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof itSolutionsServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(it-solutions)/our-works/': {
+      id: '/(it-solutions)/our-works/'
+      path: '/our-works'
+      fullPath: '/our-works'
+      preLoaderRoute: typeof itSolutionsOurWorksIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(it-solutions)/contact/': {
+      id: '/(it-solutions)/contact/'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof itSolutionsContactIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(it-solutions)/about-us/': {
+      id: '/(it-solutions)/about-us/'
+      path: '/about-us'
+      fullPath: '/about-us'
+      preLoaderRoute: typeof itSolutionsAboutUsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(institute)/institute/': {
+      id: '/(institute)/institute/'
+      path: '/institute'
+      fullPath: '/institute'
+      preLoaderRoute: typeof instituteInstituteIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(institute)/institute/reviews/': {
+      id: '/(institute)/institute/reviews/'
+      path: '/institute/reviews'
+      fullPath: '/institute/reviews'
+      preLoaderRoute: typeof instituteInstituteReviewsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(institute)/institute/courses/': {
+      id: '/(institute)/institute/courses/'
+      path: '/institute/courses'
+      fullPath: '/institute/courses'
+      preLoaderRoute: typeof instituteInstituteCoursesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(institute)/institute/contact/': {
+      id: '/(institute)/institute/contact/'
+      path: '/institute/contact'
+      fullPath: '/institute/contact'
+      preLoaderRoute: typeof instituteInstituteContactIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(institute)/institute/about/': {
+      id: '/(institute)/institute/about/'
+      path: '/institute/about'
+      fullPath: '/institute/about'
+      preLoaderRoute: typeof instituteInstituteAboutIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  itSolutionsIndexRoute: itSolutionsIndexRoute,
+  instituteInstituteIndexRoute: instituteInstituteIndexRoute,
+  itSolutionsAboutUsIndexRoute: itSolutionsAboutUsIndexRoute,
+  itSolutionsContactIndexRoute: itSolutionsContactIndexRoute,
+  itSolutionsOurWorksIndexRoute: itSolutionsOurWorksIndexRoute,
+  itSolutionsServicesIndexRoute: itSolutionsServicesIndexRoute,
+  instituteInstituteAboutIndexRoute: instituteInstituteAboutIndexRoute,
+  instituteInstituteContactIndexRoute: instituteInstituteContactIndexRoute,
+  instituteInstituteCoursesIndexRoute: instituteInstituteCoursesIndexRoute,
+  instituteInstituteReviewsIndexRoute: instituteInstituteReviewsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
