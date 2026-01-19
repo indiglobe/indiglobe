@@ -197,6 +197,7 @@ function HamburgerButton({ ...props }: ComponentProps<"button">) {
       {...props}
       onClick={toggleNavbar}
       className={cn(`z-9999`, props.className)}
+      name={navState === "open" ? "close-navbar" : "open-navbar"}
     >
       {navState === "close" && <AlignJustify size={30} />}
       {navState === "open" && <X size={35} />}

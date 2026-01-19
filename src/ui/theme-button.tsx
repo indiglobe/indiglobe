@@ -21,6 +21,7 @@ export function ThemeButton() {
         variant={"outline"}
         size={"sm"}
         onClick={() => setTheme("light")}
+        name="switch-to-light-theme"
       >
         <span>
           <Sun />
@@ -34,6 +35,7 @@ export function ThemeButton() {
         variant={"outline"}
         size={"sm"}
         onClick={() => setTheme("system")}
+        name="switch-to-system-default-theme"
       >
         <Monitor className={cn(`max-lg:hidden`)} />
         <Smartphone className={cn(`lg:hidden`)} />
@@ -46,6 +48,7 @@ export function ThemeButton() {
         variant={"outline"}
         size={"sm"}
         onClick={() => setTheme("dark")}
+        name="switch-to-dark-theme"
       >
         <Moon />
       </ThemeButtonItem>

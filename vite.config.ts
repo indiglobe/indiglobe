@@ -1,3 +1,5 @@
+/// <reference types="vitest/config" />
+
 import { defineConfig } from "vite";
 import { devtools } from "@tanstack/devtools-vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
@@ -16,6 +18,13 @@ const config = defineConfig({
     tanstackStart(),
     viteReact({ babel: { plugins: ["babel-plugin-react-compiler"] } }),
   ],
+  test: {
+    globals: true,
+    include: ["src/**/*.test.ts", "src/**/*.test.tsx"],
+    exclude: ["src/tests/e2e/**/*.ts", "src/tests/e2e/**/*.test.tsx"],
+    environment: "jsdom",
+    setupFiles: "./src/lib/vitest/setup.ts",
+  },
 });
 
 export default config;

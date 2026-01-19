@@ -8,10 +8,7 @@ import { RiWhatsappLine } from "react-icons/ri";
 
 export default function Main({ ...props }: React.ComponentProps<"main">) {
   return (
-    <main
-      {...props}
-      className={cn(`grow px-10 md:px-20 lg:px-30`, props.className)}
-    >
+    <main {...props} className={cn(`grow`, props.className)}>
       {props.children}
       <WhatsappButton />
     </main>
@@ -25,6 +22,7 @@ function WhatsappButton() {
         className={cn(
           `fixed right-10 bottom-10 scale-100 rounded-full bg-[#25D366] p-1 text-white md:right-20 md:bottom-16 md:translate-x-10 md:scale-125 lg:right-30 lg:translate-x-16 lg:scale-140`,
         )}
+        name="whatsapp-button"
       >
         <RiWhatsappLine size={28} />
       </button>
