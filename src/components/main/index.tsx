@@ -17,12 +17,16 @@ export default function Main({ ...props }: React.ComponentProps<"main">) {
 
 function WhatsappButton() {
   return (
-    <a href="https://wa.me/+918145149700" target="_blank">
+    <a
+      href="https://wa.me/+918145149700"
+      target="_blank"
+      aria-label="whatsapp-button"
+    >
       <button
         className={cn(
           `fixed right-10 bottom-10 scale-100 rounded-full bg-[#25D366] p-1 text-white md:right-20 md:bottom-16 md:translate-x-10 md:scale-125 lg:right-30 lg:translate-x-16 lg:scale-140`,
         )}
-        name="whatsapp-button"
+        aria-label="whatsapp-button"
       >
         <RiWhatsappLine size={28} />
       </button>

@@ -45,6 +45,7 @@ function HeroSection({ ...props }: ComponentProps<"section">) {
             autoPlay
             loop
             muted
+            
           >
             Your browser does not support the video tag.
           </video>

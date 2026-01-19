@@ -17,7 +17,7 @@ export default function Footer() {
         <section className={cn(`flex flex-col gap-y-6`)}>
           <div className={cn(`flex items-center`)}>
             <div className={cn(`size-12`)}>
-              <Image layout="fullWidth" src={logo} />
+              <Image layout="fullWidth" src={logo} alt="Indiglobe-logo" />
             </div>
             <div
               className={cn(`text-secondary-600 text-2xl font-bold uppercase`)}
@@ -153,7 +153,7 @@ export default function Footer() {
         </p>
 
         <span>
-          <a href="https://github.com" target="_blank">
+          <a href="https://github.com" target="_blank" aria-label="github-source">
             <RiGithubFill size={28} />
           </a>
         </span>
