@@ -153,7 +153,11 @@ export default function Footer() {
         </p>
 
         <span>
-          <a href="https://github.com" target="_blank" aria-label="github-source">
+          <a
+            href="https://github.com/indiglobe/indiglobe"
+            target="_blank"
+            aria-label="github-source"
+          >
             <RiGithubFill size={28} />
           </a>
         </span>

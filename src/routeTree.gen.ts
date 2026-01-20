@@ -15,6 +15,9 @@ import { Route as itSolutionsOurWorksIndexRouteImport } from './routes/(it-solut
 import { Route as itSolutionsContactIndexRouteImport } from './routes/(it-solutions)/contact/index'
 import { Route as itSolutionsAboutUsIndexRouteImport } from './routes/(it-solutions)/about-us/index'
 import { Route as instituteInstituteIndexRouteImport } from './routes/(institute)/institute/index'
+import { Route as itSolutionsServicesWebDevelopmentIndexRouteImport } from './routes/(it-solutions)/services/web-development/index'
+import { Route as itSolutionsServicesTeleCallingIndexRouteImport } from './routes/(it-solutions)/services/tele-calling/index'
+import { Route as itSolutionsServicesDigitalMarketingIndexRouteImport } from './routes/(it-solutions)/services/digital-marketing/index'
 import { Route as instituteInstituteReviewsIndexRouteImport } from './routes/(institute)/institute/reviews/index'
 import { Route as instituteInstituteCoursesIndexRouteImport } from './routes/(institute)/institute/courses/index'
 import { Route as instituteInstituteContactIndexRouteImport } from './routes/(institute)/institute/contact/index'
@@ -52,6 +55,24 @@ const instituteInstituteIndexRoute = instituteInstituteIndexRouteImport.update({
   path: '/institute/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const itSolutionsServicesWebDevelopmentIndexRoute =
+  itSolutionsServicesWebDevelopmentIndexRouteImport.update({
+    id: '/(it-solutions)/services/web-development/',
+    path: '/services/web-development/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const itSolutionsServicesTeleCallingIndexRoute =
+  itSolutionsServicesTeleCallingIndexRouteImport.update({
+    id: '/(it-solutions)/services/tele-calling/',
+    path: '/services/tele-calling/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const itSolutionsServicesDigitalMarketingIndexRoute =
+  itSolutionsServicesDigitalMarketingIndexRouteImport.update({
+    id: '/(it-solutions)/services/digital-marketing/',
+    path: '/services/digital-marketing/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const instituteInstituteReviewsIndexRoute =
   instituteInstituteReviewsIndexRouteImport.update({
     id: '/(institute)/institute/reviews/',
@@ -79,15 +100,18 @@ const instituteInstituteAboutIndexRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof itSolutionsIndexRoute
-  '/institute': typeof instituteInstituteIndexRoute
-  '/about-us': typeof itSolutionsAboutUsIndexRoute
-  '/contact': typeof itSolutionsContactIndexRoute
-  '/our-works': typeof itSolutionsOurWorksIndexRoute
-  '/services': typeof itSolutionsServicesIndexRoute
-  '/institute/about': typeof instituteInstituteAboutIndexRoute
-  '/institute/contact': typeof instituteInstituteContactIndexRoute
-  '/institute/courses': typeof instituteInstituteCoursesIndexRoute
-  '/institute/reviews': typeof instituteInstituteReviewsIndexRoute
+  '/institute/': typeof instituteInstituteIndexRoute
+  '/about-us/': typeof itSolutionsAboutUsIndexRoute
+  '/contact/': typeof itSolutionsContactIndexRoute
+  '/our-works/': typeof itSolutionsOurWorksIndexRoute
+  '/services/': typeof itSolutionsServicesIndexRoute
+  '/institute/about/': typeof instituteInstituteAboutIndexRoute
+  '/institute/contact/': typeof instituteInstituteContactIndexRoute
+  '/institute/courses/': typeof instituteInstituteCoursesIndexRoute
+  '/institute/reviews/': typeof instituteInstituteReviewsIndexRoute
+  '/services/digital-marketing/': typeof itSolutionsServicesDigitalMarketingIndexRoute
+  '/services/tele-calling/': typeof itSolutionsServicesTeleCallingIndexRoute
+  '/services/web-development/': typeof itSolutionsServicesWebDevelopmentIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof itSolutionsIndexRoute
@@ -100,6 +124,9 @@ export interface FileRoutesByTo {
   '/institute/contact': typeof instituteInstituteContactIndexRoute
   '/institute/courses': typeof instituteInstituteCoursesIndexRoute
   '/institute/reviews': typeof instituteInstituteReviewsIndexRoute
+  '/services/digital-marketing': typeof itSolutionsServicesDigitalMarketingIndexRoute
+  '/services/tele-calling': typeof itSolutionsServicesTeleCallingIndexRoute
+  '/services/web-development': typeof itSolutionsServicesWebDevelopmentIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -113,20 +140,26 @@ export interface FileRoutesById {
   '/(institute)/institute/contact/': typeof instituteInstituteContactIndexRoute
   '/(institute)/institute/courses/': typeof instituteInstituteCoursesIndexRoute
   '/(institute)/institute/reviews/': typeof instituteInstituteReviewsIndexRoute
+  '/(it-solutions)/services/digital-marketing/': typeof itSolutionsServicesDigitalMarketingIndexRoute
+  '/(it-solutions)/services/tele-calling/': typeof itSolutionsServicesTeleCallingIndexRoute
+  '/(it-solutions)/services/web-development/': typeof itSolutionsServicesWebDevelopmentIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/institute'
-    | '/about-us'
-    | '/contact'
-    | '/our-works'
-    | '/services'
-    | '/institute/about'
-    | '/institute/contact'
-    | '/institute/courses'
-    | '/institute/reviews'
+    | '/institute/'
+    | '/about-us/'
+    | '/contact/'
+    | '/our-works/'
+    | '/services/'
+    | '/institute/about/'
+    | '/institute/contact/'
+    | '/institute/courses/'
+    | '/institute/reviews/'
+    | '/services/digital-marketing/'
+    | '/services/tele-calling/'
+    | '/services/web-development/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -139,6 +172,9 @@ export interface FileRouteTypes {
     | '/institute/contact'
     | '/institute/courses'
     | '/institute/reviews'
+    | '/services/digital-marketing'
+    | '/services/tele-calling'
+    | '/services/web-development'
   id:
     | '__root__'
     | '/(it-solutions)/'
@@ -151,6 +187,9 @@ export interface FileRouteTypes {
     | '/(institute)/institute/contact/'
     | '/(institute)/institute/courses/'
     | '/(institute)/institute/reviews/'
+    | '/(it-solutions)/services/digital-marketing/'
+    | '/(it-solutions)/services/tele-calling/'
+    | '/(it-solutions)/services/web-development/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -164,6 +203,9 @@ export interface RootRouteChildren {
   instituteInstituteContactIndexRoute: typeof instituteInstituteContactIndexRoute
   instituteInstituteCoursesIndexRoute: typeof instituteInstituteCoursesIndexRoute
   instituteInstituteReviewsIndexRoute: typeof instituteInstituteReviewsIndexRoute
+  itSolutionsServicesDigitalMarketingIndexRoute: typeof itSolutionsServicesDigitalMarketingIndexRoute
+  itSolutionsServicesTeleCallingIndexRoute: typeof itSolutionsServicesTeleCallingIndexRoute
+  itSolutionsServicesWebDevelopmentIndexRoute: typeof itSolutionsServicesWebDevelopmentIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -178,63 +220,84 @@ declare module '@tanstack/react-router' {
     '/(it-solutions)/services/': {
       id: '/(it-solutions)/services/'
       path: '/services'
-      fullPath: '/services'
+      fullPath: '/services/'
       preLoaderRoute: typeof itSolutionsServicesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/(it-solutions)/our-works/': {
       id: '/(it-solutions)/our-works/'
       path: '/our-works'
-      fullPath: '/our-works'
+      fullPath: '/our-works/'
       preLoaderRoute: typeof itSolutionsOurWorksIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/(it-solutions)/contact/': {
       id: '/(it-solutions)/contact/'
       path: '/contact'
-      fullPath: '/contact'
+      fullPath: '/contact/'
       preLoaderRoute: typeof itSolutionsContactIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/(it-solutions)/about-us/': {
       id: '/(it-solutions)/about-us/'
       path: '/about-us'
-      fullPath: '/about-us'
+      fullPath: '/about-us/'
       preLoaderRoute: typeof itSolutionsAboutUsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/(institute)/institute/': {
       id: '/(institute)/institute/'
       path: '/institute'
-      fullPath: '/institute'
+      fullPath: '/institute/'
       preLoaderRoute: typeof instituteInstituteIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(it-solutions)/services/web-development/': {
+      id: '/(it-solutions)/services/web-development/'
+      path: '/services/web-development'
+      fullPath: '/services/web-development/'
+      preLoaderRoute: typeof itSolutionsServicesWebDevelopmentIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(it-solutions)/services/tele-calling/': {
+      id: '/(it-solutions)/services/tele-calling/'
+      path: '/services/tele-calling'
+      fullPath: '/services/tele-calling/'
+      preLoaderRoute: typeof itSolutionsServicesTeleCallingIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(it-solutions)/services/digital-marketing/': {
+      id: '/(it-solutions)/services/digital-marketing/'
+      path: '/services/digital-marketing'
+      fullPath: '/services/digital-marketing/'
+      preLoaderRoute: typeof itSolutionsServicesDigitalMarketingIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/(institute)/institute/reviews/': {
       id: '/(institute)/institute/reviews/'
       path: '/institute/reviews'
-      fullPath: '/institute/reviews'
+      fullPath: '/institute/reviews/'
       preLoaderRoute: typeof instituteInstituteReviewsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/(institute)/institute/courses/': {
       id: '/(institute)/institute/courses/'
       path: '/institute/courses'
-      fullPath: '/institute/courses'
+      fullPath: '/institute/courses/'
       preLoaderRoute: typeof instituteInstituteCoursesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/(institute)/institute/contact/': {
       id: '/(institute)/institute/contact/'
       path: '/institute/contact'
-      fullPath: '/institute/contact'
+      fullPath: '/institute/contact/'
       preLoaderRoute: typeof instituteInstituteContactIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/(institute)/institute/about/': {
       id: '/(institute)/institute/about/'
       path: '/institute/about'
-      fullPath: '/institute/about'
+      fullPath: '/institute/about/'
       preLoaderRoute: typeof instituteInstituteAboutIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
@@ -252,6 +315,12 @@ const rootRouteChildren: RootRouteChildren = {
   instituteInstituteContactIndexRoute: instituteInstituteContactIndexRoute,
   instituteInstituteCoursesIndexRoute: instituteInstituteCoursesIndexRoute,
   instituteInstituteReviewsIndexRoute: instituteInstituteReviewsIndexRoute,
+  itSolutionsServicesDigitalMarketingIndexRoute:
+    itSolutionsServicesDigitalMarketingIndexRoute,
+  itSolutionsServicesTeleCallingIndexRoute:
+    itSolutionsServicesTeleCallingIndexRoute,
+  itSolutionsServicesWebDevelopmentIndexRoute:
+    itSolutionsServicesWebDevelopmentIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

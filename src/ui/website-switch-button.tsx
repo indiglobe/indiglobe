@@ -30,8 +30,10 @@ export function SwitchWebsite({ ...props }: React.ComponentProps<typeof Link>) {
     >
       <WebsiteSwitchButton>
         <span>
-          Checkout our{" "}
-          <span>{pathname.startsWith("/institute") && "IT Solutions services"}</span>
+          Switch to{" "}
+          <span>
+            {pathname.startsWith("/institute") && "IT Solutions"}
+          </span>
           <span>{!pathname.startsWith("/institute") && "Institute"}</span>
         </span>
       </WebsiteSwitchButton>

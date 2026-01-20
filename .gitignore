@@ -19,3 +19,6 @@ count.txt
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# turbo
+.turbo

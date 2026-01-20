@@ -6,6 +6,7 @@ import logo from "@/assets/indiglobe-logo.avif";
 import { ComponentProps } from "react";
 import { AlignJustify, X } from "lucide-react";
 import { useNavAction, useNavState } from "@/hooks/use-nav-state";
+import { NavItem } from "@/ui/nav-item";
 
 export function NavBar({ ...props }: ComponentProps<"nav">) {
   return (
@@ -94,20 +95,25 @@ function NavItems() {
 function ITSolutionNavItems() {
   const { pathname } = useLocation();
   const pathnameFirstSegment = pathname.split("/")[1];
+
   return (
     <>
       <NavItem to="/" isActive={pathnameFirstSegment === ""}>
         Home
       </NavItem>
+
       <NavItem to="/services" isActive={pathnameFirstSegment === "services"}>
         Services
       </NavItem>
+
       <NavItem to="/our-works" isActive={pathnameFirstSegment === "our-works"}>
         Our works
       </NavItem>
+
       <NavItem to="/about-us" isActive={pathnameFirstSegment === "about-us"}>
         About us
       </NavItem>
+
       <NavItem to="/contact" isActive={pathnameFirstSegment === "contact"}>
         Contact
       </NavItem>
@@ -149,27 +155,6 @@ function InstituteNavItems() {
         Contact
       </NavItem>
     </>
-  );
-}
-
-function NavItem({
-  isActive,
-  ...props
-}: { isActive: boolean } & ComponentProps<typeof Link>) {
-  const { closeNavbar } = useNavAction();
-
-  return (
-    <Link
-      {...props}
-      className={cn(
-        `focus-visible:ring-primary-500 focus-visible:ring-offset-primary-100 lg:focus-visible:ring-offset-background-50 -mx-2 rounded-md px-2 outline-none focus-visible:ring-2 focus-visible:ring-offset-2`,
-        {
-          "text-primary-600": isActive,
-        },
-        props.className,
-      )}
-      onClick={closeNavbar}
-    />
   );
 }
 

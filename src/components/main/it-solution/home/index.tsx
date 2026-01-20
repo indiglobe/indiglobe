@@ -1,10 +1,10 @@
 import { cn } from "@/lib/utils";
-import { ComponentProps } from "react";
+import { ComponentProps, useRef } from "react";
 import heroVideo from "@/assets/hero-video.mp4";
 import { Button } from "@/ui/button";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Phone } from "lucide-react";
-import { statisticsData } from "./data";
+import { servicesData, statisticsData } from "./data";
 import {
   StatisticsCard,
   StatisticsCardBoldText,
@@ -12,6 +12,20 @@ import {
   StatisticsCardText,
 } from "@/ui/statistics-card";
 import { Image } from "@unpic/react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import {
+  ExploreButton,
+  ServicesHighlighted,
+  ServicesOffered,
+  ServicesOfferedCard,
+  ServicesOfferedDetails,
+  ServicesOfferedHeading,
+} from "@/ui/services-offered-card";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(ScrollTrigger);
 
 export function HomePage({ ...props }: ComponentProps<"div">) {
   return (
@@ -45,7 +59,6 @@ function HeroSection({ ...props }: ComponentProps<"section">) {
             autoPlay
             loop
             muted
-            
           >
             Your browser does not support the video tag.
           </video>
@@ -83,7 +96,9 @@ function HeroSection({ ...props }: ComponentProps<"section">) {
                   )}
                 >
                   Get started{" "}
-                  <span className={cn(`group-hover:translate-x-2`)}>
+                  <span
+                    className={cn(`transition-all group-hover:translate-x-2`)}
+                  >
                     <ArrowRight />
                   </span>
                 </Button>
@@ -96,7 +111,11 @@ function HeroSection({ ...props }: ComponentProps<"section">) {
                   )}
                 >
                   Call now
-                  <span className={cn(`rotate-270 group-hover:rotate-220`)}>
+                  <span
+                    className={cn(
+                      `rotate-270 transition-all group-hover:rotate-220`,
+                    )}
+                  >
                     <Phone />
                   </span>
                 </Button>
@@ -110,21 +129,46 @@ function HeroSection({ ...props }: ComponentProps<"section">) {
 }
 
 function StatisticsSection({ ...props }: ComponentProps<"section">) {
+  const wrapper = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        ".gsap-statistics-card",
+        {
+          y: "20px",
+          opacity: 0,
+          scrollTrigger: {
+            trigger: wrapper.current,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        },
+        { y: "0px", stagger: 0.5, opacity: 1 },
+      );
+    },
+    { scope: wrapper },
+  );
+
   return (
     <section
       {...props}
       className={cn(
-        `bg-primary-400 text-text-50 dark:text-text-950 px-10 py-16 md:px-20 lg:px-30`,
+        `bg-primary-400 dark:bg-primary-500 text-text-50 dark:text-text-950 px-10 py-16 md:px-20 lg:px-30`,
       )}
     >
       <div
+        ref={wrapper}
         className={cn(
           `grid grid-cols-1 place-items-center sm:grid-cols-2 lg:grid-cols-4`,
         )}
       >
         {statisticsData.map(({ heading, icon, text }) => {
           return (
-            <StatisticsCard key={text}>
+            <StatisticsCard
+              className={cn(`gsap-statistics-card opacity-0`)}
+              key={text}
+            >
               <StatisticsCardIcon>{icon}</StatisticsCardIcon>
               <StatisticsCardBoldText>{heading}</StatisticsCardBoldText>
               <StatisticsCardText>{text}</StatisticsCardText>
@@ -223,17 +267,34 @@ function OurServicesSection({ ...props }: ComponentProps<"section">) {
     <section
       {...props}
       className={cn(
-        `bg-primary-400 text-text-50 dark:text-text-950 px-10 py-16 md:px-20 lg:px-30`,
+        `bg-primary-400 dark:bg-primary-500 text-text-50 dark:text-text-950 px-10 py-16 md:px-20 lg:px-30`,
         props.className,
       )}
     >
       <SectionHeading>Our Services</SectionHeading>
 
-      <SectionSubHeading>
+      <SectionSubHeading className={cn(`pb-16`)}>
         Tailored solution in digital marketing , web development and telecalling
       </SectionSubHeading>
 
-      <div></div>
+      <div
+        className={cn(
+          `grid grid-cols-1 place-items-center gap-4 lg:grid-cols-3`,
+        )}
+      >
+        {servicesData.map(({ details, heading, serviceHighlights }) => {
+          return (
+            <ServicesOffered key={heading}>
+              <ServicesOfferedCard>
+                <ServicesOfferedHeading>{heading}</ServicesOfferedHeading>
+                <ServicesOfferedDetails>{details}</ServicesOfferedDetails>
+                <ServicesHighlighted highlights={serviceHighlights} />
+              </ServicesOfferedCard>
+              <ExploreButton />
+            </ServicesOffered>
+          );
+        })}
+      </div>
     </section>
   );
 }
